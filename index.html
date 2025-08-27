@@ -1,1 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EASY SENSI</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    /* Fullscreen video background */
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .video-background video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.1); /* Slightly zooms the video to fill the screen */
+      transform-origin: center center; /* Keeps the scaling centered */
+      filter: blur(5px); /* Blur effect */
+    }
+
+    /* Video with iframe (optional) */
+    .video-background iframe {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none; /* Prevent user interaction */
+    }
+
+    header {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 32px;
+      color: white;
+      font-weight: bold;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      padding: 40px;
+      color: white;
+    }
+
+    .left-panel,
+    .right-panel {
+      width: 45%;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.5); /* Slightly transparent */
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .left-panel h2 {
+      margin-bottom: 20px;
+    }
+
+    .left-panel input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0 20px 0;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .left-panel button {
+      padding: 10px 20px;
+      background-color: #2e86de;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .left-panel button:hover {
+      background-color: #1b4f72;
+    }
+
+    .output-box {
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      font-size: 18px;
+    }
+  </style>
+  <script src="mainpage.js"></script>
+</head>
+<body>
+
+  <!-- Local MP4 Video Background -->
+  <div class="video-background">
+    <video autoplay muted loop>
+      <source src="./Materials/background.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <header>
+    EAzY SENzI
+  </header>
+
+  <div class="container">
+    <!-- Left Panel -->
+    <div class="left-panel">
+      <h2>Upload</h2>
+      <input type="text" placeholder="Enter your sensitivity..." id="inputSensi">
+      <button onclick="convertSensitivity()">GO</button>
+    </div>
+
+    <!-- Right Panel -->
+    <div class="right-panel">
+      <div class="output-box" id="codSensi">COD Sensi: --</div>
+      <div class="output-box" id="bgmiSensi">BGMI Sensi: --</div>
+      <div class="output-box" id="fortnitefSensi">Fortnite Sensi: --</div>
+      <div class="output-box" id="freefireSensi">Free Fire Sensi: --</div>
+    </div>
+  </div>
+
+</body>
+</html>
